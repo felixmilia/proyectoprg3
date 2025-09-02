@@ -3,7 +3,8 @@ import './styles.css'
 function Header() {
   return (
     <header>
-        <p>Soy un header</p>
+        <img src="/img/logo.png" alt="logo"></img>
+        <p>Reels+</p>
     </header>
   )
 }
