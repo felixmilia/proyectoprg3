@@ -6,3 +6,19 @@ header {
     color: white;
     width: 100%;
 }
+
+.naaaaaavbar{
+    display: flex;
+    justify-content: space-around;
+}
+
+.linkContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
