@@ -9,6 +9,8 @@ function Header() {
             <div className="linkContainer">
                 <a href="/">Home</a>
                 <a href="/favoritos">Favoritos</a>
+                <a href="/populares">Ver todas populares</a>
+                <a href="/cartel">Ver todas en cartel</a>
             </div>
              <form className="search-form" action="" method="get">
                 <input type="text" className="" name="searchData" placeholder="Buscar..." value="" />
