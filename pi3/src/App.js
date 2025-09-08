@@ -1,10 +1,17 @@
 import React from "react";
+import {Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import {Switch} from 'react-router-dom'
+
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Populares from "./components/Populares/Populares";
 import Cartel from "./components/Cartel/Cartel";
 import Tvsopulares from "./components/Tvspopulares/Tvspopulares";
 import Tvscartel from "./components/Tvscartel/Tvscartel";
+import Busqueda from "./screens/Busqueda/Busqueda";
+import Formulario from "./components/Formulario/Formulario";
 
 
 function App() {
@@ -13,17 +20,17 @@ function App() {
 
       <Header/>
 
+      <Formulario/>
+
       <h2 class="alert alert-primary">Peliculas populares esta semana</h2>
       <Populares/>
 
       <h2 class="alert alert-primary">Peliculas en cartel</h2>
       <Cartel/>
 
-      <h2 class="alert alert-warning">Series populares esta semana</h2>
-      <Tvsopulares/>
-
-      <h2 class="alert alert-warning">Series en emisión</h2>
-      <Tvscartel/>
+      <Switch>
+        <Route path="/busqueda/:query" component={Busqueda}/>
+      </Switch>
 
       <Footer/>
 
