@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom"
-// import './styles.css'
 
 class Formulario extends Component {
     constructor(props) {
@@ -19,17 +18,17 @@ class Formulario extends Component {
     controlarCambios (event) {
         this.setState({
             busqueda : event.target.value
-        },)
+        })
     }
 
     render () {
         return (
             <form onSubmit={(event) => this.prevenirRecarga(event)}>
-                <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}></input>
+                <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}/>
                 <button type="submit">Buscar</button>
             </form>
         )
     }
 }
 
-export default Formulario
+export default withRouter(Formulario)
