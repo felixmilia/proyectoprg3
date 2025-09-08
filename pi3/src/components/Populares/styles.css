@@ -1,43 +1,116 @@
 .cards {
-    padding: 0.75rem 1.25rem;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 2%;
-}
-.cardBody {
-    margin-top: 20px;
-}
-.single-card-people {
-    width: 19%;
-}
-.single-card-movie {
-    width: 24%;
-    background-color: blue;
-}
-.single-card-playing {
-    width: 15%;
-}
-#now-playing .card-text{
-    height: 100px;
-    overflow: hidden;
-}
-.single-card-tv {
-    width: 19%;
-}
-.tv-show .card-text{
-    height: 100px;
-    overflow: hidden;
-}
-.single-card-on-air{
-    width: 15%;
-}
-#on-air-today .card-text{
-    height: 100px;
-    overflow: hidden;
+    gap: 32px;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: #fafafa;
 }
 
-.all-movies .single-card-movie {
-    width: 15%;
+.single-card-movie {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    width: 260px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.single-card-movie:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.cardBody {
+    padding: 18px 16px 14px 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.card-text {
+    font-size: 0.97rem;
+    color: #444;
+    margin-bottom: 18px;
+    min-height: 60px;
+    flex: 1; 
+}
+
+.card-actions {
+    margin-top: auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 7px 18px;
+    margin-right: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.98rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: #a00;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #d00;
+}
+
+.alert-primary {
+    background: #f3f3f3;
+    color: #a00;
+    border: 1px solid #eee;
+}
+
+.alert-primary:hover {
+    background: #ffeaea;
+    color: #d00;
+}
+
+@media (max-width: 900px) {
+    .cards {
+        gap: 18px;
+    }
+    .single-card-movie {
+        width: 46vw;
+        min-width: 220px;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .single-card-movie {
+        width: 95vw;
+        min-width: unset;
+        max-width: 99vw;
+    }
 }
