@@ -5,8 +5,8 @@ function Header() {
     <header>
       <img src="/img/logo.png" alt="logo"></img>
       <h1>Reels+</h1>
-      <nav className="naaaaaavbar">
-        <div className="linkContainer">
+      <nav classNameName="naaaaaavbar">
+        <div classNameName="linkContainer">
           <a href="/">Home</a>
           <a href="/favoritos">Favoritos</a>
           <a href="/populares">Ver todas populares</a>
@@ -14,7 +14,7 @@ function Header() {
         </div>
         <form onSubmit={(event) => this.evitarSubmit(event)} >
           <input type="text" onChange={(event)=>this.controlarCambios(event)} value=""/>
-          <button type="submit" className="btn btn-success btn-sm">Buscar</button>
+          <button type="submit" classNameName="btn btn-success btn-sm">Buscar</button>
         </form>
       </nav>
     </header>

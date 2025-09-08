@@ -12,6 +12,7 @@ import Home from "./screens/Home/Home";
 function App() {
   return (
     <>
+    <>
 
       <Header/>
 
@@ -30,6 +31,7 @@ function App() {
 
       <Footer/>
 
+    </>
     </>
   );
 }
