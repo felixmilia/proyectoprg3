@@ -16,16 +16,16 @@ import Formulario from "./components/Formulario/Formulario";
 
 function App() {
   return (
-    <body>
+    <>
 
       <Header/>
 
       <Formulario/>
 
-      <h2 class="alert alert-primary">Peliculas populares esta semana</h2>
+      <h2 className="alert alert-primary">Peliculas populares esta semana</h2>
       <Populares/>
 
-      <h2 class="alert alert-primary">Peliculas en cartel</h2>
+      <h2 className="alert alert-primary">Peliculas en cartel</h2>
       <Cartel/>
 
       <Switch>
@@ -34,7 +34,7 @@ function App() {
 
       <Footer/>
 
-    </body>
+    </>
   );
 }
 
