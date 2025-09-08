@@ -6,9 +6,10 @@ class Busqueda extends Component {
     }
 
     render () {
-        console.log(this.props.match.params.query)
+        const query = this.props.match.params.query;
+        console.log(query);
         return (
-            <p>Resultados de busqueda</p>
+            <p>Resultados de busqueda para: {query}</p>
         )
     }
 }
