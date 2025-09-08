@@ -16,6 +16,8 @@ class Formulario extends Component {
     }
 
     controlarCambios (event) {
+        console.log(event);
+        
         this.setState({
             busqueda : event.target.value
         })

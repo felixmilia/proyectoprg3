@@ -6,35 +6,31 @@ import {Switch} from 'react-router-dom'
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Populares from "./components/Populares/Populares";
-import Cartel from "./components/Cartel/Cartel";
-import Tvsopulares from "./components/Tvspopulares/Tvspopulares";
-import Tvscartel from "./components/Tvscartel/Tvscartel";
 import Busqueda from "./screens/Busqueda/Busqueda";
-import Formulario from "./components/Formulario/Formulario";
-
+import Home from "./screens/Home/Home";
 
 function App() {
   return (
-    <body>
+    <>
 
       <Header/>
 
-      <Formulario/>
 
-      <h2 class="alert alert-primary">Peliculas populares esta semana</h2>
-      <Populares/>
 
-      <h2 class="alert alert-primary">Peliculas en cartel</h2>
-      <Cartel/>
 
       <Switch>
-        <Route path="/busqueda/:query" component={Busqueda}/>
+
+      
+
+        <Route path="/busqueda/:query" component={Busqueda} />
+        <Route path="/" exact={true} component={Home} />
+
+       
       </Switch>
 
       <Footer/>
 
-    </body>
+    </>
   );
 }
 
