@@ -12,10 +12,6 @@ function Header() {
           <a href="/populares">Ver todas populares</a>
           <a href="/cartel">Ver todas en cartel</a>
         </div>
-        <form onSubmit={(event) => this.evitarSubmit(event)} >
-          <input type="text" onChange={(event)=>this.controlarCambios(event)} value=""/>
-          <button type="submit" classNameName="btn btn-success btn-sm">Buscar</button>
-        </form>
       </nav>
     </header>
   )
