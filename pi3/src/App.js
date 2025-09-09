@@ -8,6 +8,9 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Busqueda from "./screens/Busqueda/Busqueda";
 import Home from "./screens/Home/Home";
+import Vercartel from "./screens/Vercartel/Vercartel";
+import Verpopular from "./screens/Verpopular/Verpopular";
+
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
 
         <Route path="/busqueda/:query" component={Busqueda} />
         <Route path="/" exact={true} component={Home} />
+        <Route path="/ver-mas-cartel" component={Vercartel} />
+        <Route path="/ver-mas-popular" component={Verpopular} />
+
 
        
       </Switch>

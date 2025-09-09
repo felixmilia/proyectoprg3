@@ -92,6 +92,13 @@
     color: #d00;
 }
 
+.pelas { 
+    width: '100%'; 
+    display: 'flex'; 
+    justify-content: 'center'; 
+    margin-Top: 24;
+}
+
 @media (max-width: 900px) {
     .cards {
         gap: 18px;

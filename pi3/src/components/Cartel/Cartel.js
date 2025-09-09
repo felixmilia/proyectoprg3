@@ -1,80 +1,48 @@
-import React from 'react'
-import './styles.css'
-function Cartel() {
-    return (
-        <section className="row cards" id="now-playing">
-            <article className="single-card-playing">
-                <img src="https://image.tmdb.org/t/p/w500/yvirUYrva23IudARHn3mMGVxWqM.jpg" className="card-img-top"alt="..."></img>
-                    <div className="cardBody">
-                        <h5 className="card-title">War of the Worlds</h5>
-                        <p className="card-text">Will Radford is a top analyst for Homeland Security who tracks potential
-                            threats through a mass surveillance program, until one day an attack by an unknown entity leads
-                            him to question whether the government is hiding something from him... and from the rest of the
-                            world.</p>
-                        <a href="movie.html" className="btn btn-primary">Ver más</a>
-                        <a href="" className="btn alert-primary">🩶</a>
-                    </div>
-            </article>
-            <article className="single-card-playing">
-                <img src="https://image.tmdb.org/t/p/w500/9PXZIUsSDh4alB80jheWX4fhZmy.jpg" className="card-img-top"alt="...">
-         </img>           <div className="cardBody">
-                        <h5 className="card-title">F1</h5>
-                        <p className="card-text">Racing legend Sonny Hayes is coaxed out of retirement to lead a struggling
-                            Formula 1 team—and mentor a young hotshot driver—while chasing one more chance at glory.</p>
-                        <a href="movie.html" className="btn btn-primary">Ver más</a>
-                        <a href="" className="btn alert-primary">♥️</a>
-                    </div>
-            </article>
-            <article className="single-card-playing">
-                <img src="https://image.tmdb.org/t/p/w500/12Va3oO3oYUdOd75zM57Nx1976a.jpg" className="card-img-top"alt="..."></img>
-                    <div className="cardBody">
-                        <h5 className="card-title">Eenie Meanie</h5>
-                        <p className="card-text">A former teenage getaway driver gets dragged back into her unsavory past when a
-                            former employer offers her a chance to save the life of her chronically unreliable ex-boyfriend.
-                        </p>
-                        <a href="movie.html" className="btn btn-primary">Ver más</a>
-                        <a href="" className="btn alert-primary">🩶</a>
-                    </div>
-            </article>
-            <article className="single-card-playing">
-                <img src="https://image.tmdb.org/t/p/w500/1RICxzeoNCAO5NpcRMIgg1XT6fm.jpg" className="card-img-top"alt="..."></img>
-                    <div className="cardBody">
-                        <h5 className="card-title">Jurassic World Rebirth</h5>
-                        <p className="card-text">Five years after the events of Jurassic World Dominion, covert operations
-                            expert Zora Bennett is contracted to lead a skilled team on a top-secret mission to secure
-                            genetic material from the world's three most massive dinosaurs. When Zora's operation intersects
-                            with a civilian family whose boating expedition was capsized, they all find themselves stranded
-                            on an island where they come face-to-face with a sinister, shocking discovery that's been hidden
-                            from the world for decades.</p>
-                        <a href="movie.html" className="btn btn-primary">Ver más</a>
-                        <a href="" className="btn alert-primary">🩶</a>
-                    </div>
-            </article>
-            <article className="single-card-playing">
-                <img src="https://image.tmdb.org/t/p/w500/m52XidzKx94bKlToZfEXUnL3pdy.jpg" className="card-img-top"alt="..."></img>
-                    <div className="cardBody">
-                        <h5 className="card-title">Together</h5>
-                        <p className="card-text">With a move to the countryside already testing the limits of a couple's
-                            relationship, a supernatural encounter begins an extreme transformation of their love, their
-                            lives, and their flesh.</p>
-                        <a href="movie.html" className="btn btn-primary">Ver más</a>
-                        <a href="" className="btn alert-primary">🩶</a>
-                    </div>
-            </article>
-            <article className="single-card-playing">
-                <img src="https://image.tmdb.org/t/p/w500/A06yXys3hrCWu8xiNoHCFLTG5SH.jpg" className="card-img-top"alt="..."></img>
-                    <div className="cardBody">
-                        <h5 className ="card-title">I Know What You Did Last Summer</h5>
-                        <p className="card-text">When five friends inadvertently cause a deadly car accident, they cover up
-                            their involvement and make a pact to keep it a secret rather than face the consequences. A year
-                            later, their past comes back to haunt them and they're forced to confront a horrifying truth:
-                            someone knows what they did last summer…and is hell-bent on revenge.</p>
-                        <a href="movie.html" className="btn btn-primary">Ver más</a>
-                        <a href="" className="btn alert-primary">♥️</a>
-                    </div>
-            </article>
-        </section>
-    )
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import './styles.css';
+
+class Cartel extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            peliculas: []
+        };
+    }
+
+    componentDidMount() {
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=702201d43b610a61ca14f4b8810d7ccb&language=es-ES&page=1')
+            .then(response => response.json())
+            .then(data => this.setState({ peliculas: data.results }))
+            .catch(error => console.log('El error fue: ' + error));
+    }
+
+    render() {
+        const peliculasAMostrar = this.state.peliculas.slice(0, 4);
+
+        return (
+            <section className="row cards" id="now-playing">
+                {peliculasAMostrar.map(pelicula => (
+                    <article className="single-card-playing" key={pelicula.id}>
+                        <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} className="card-img-top" alt={pelicula.title}/>
+                        <div className="cardBody">
+                            <h5 className="card-title">{pelicula.title}</h5>
+                            <p className="card-text">{pelicula.overview}</p>
+                            <div className="card-actions">
+                                <a href="#" className="btn btn-primary">Ver más</a>
+                                <button className="btn alert-primary">♥️</button>
+                            </div>
+                        </div>
+                    </article>
+                ))}
+                <div>
+                    <button className="btn btn-primary" onClick={() => this.props.history.push('/ver-mas-cartel')}>
+                        Ver más películas
+                    </button>
+                </div>
+            </section>
+        );
+    }
 }
 
-export default Cartel
+export default withRouter(Cartel);
