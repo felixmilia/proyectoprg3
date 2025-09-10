@@ -10,6 +10,7 @@ import Busqueda from "./screens/Busqueda/Busqueda";
 import Home from "./screens/Home/Home";
 import Vercartel from "./screens/Vercartel/Vercartel";
 import Verpopular from "./screens/Verpopular/Verpopular";
+import Detalle from "./screens/Detalle/Detalle";
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
         <Route path="/" exact={true} component={Home} />
         <Route path="/ver-mas-cartel" component={Vercartel} />
         <Route path="/ver-mas-popular" component={Verpopular} />
-
+        <Route path="/detalle/:id" component={Detalle} />
 
        
       </Switch>

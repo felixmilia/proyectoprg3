@@ -29,7 +29,10 @@ class Populares extends Component {
                             <h5 className="card-title">{pelicula.title}</h5>
                             <p className="card-text">{pelicula.overview}</p>
                             <div className="card-actions">
-                                <a href="#" className="btn btn-primary">Ver más</a>
+                                <a href="#" className="btn btn-primary">Ver descripción</a>
+                                <a href="#" className="btn btn-primary" onClick={event => {event.preventDefault(); this.props.history.push(`/detalle/${pelicula.id}`);}}>
+                                    Ir a detalle
+                                </a>
                                 <button className="btn alert-primary">♥️</button>
                             </div>
                         </div>

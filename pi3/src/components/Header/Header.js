@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './styles.css'
+
 function Header() {
   return (
     <header>
@@ -7,10 +9,10 @@ function Header() {
       <h1 className='titulo'>Reels+</h1>
       <nav className="naaaaaavbar">
         <div className="linkContainer">
-          <a href="/">Home</a>
-          <a href="/populares">Ver todas populares</a>
-          <a href="/cartel">Ver todas en cartel</a>
-          <a href="/favoritos">Favoritos</a>
+          <Link to="/">Home</Link>
+          <Link to="/ver-mas-popular">Ver todas populares</Link>
+          <Link to="/ver-mas-cartel">Ver todas en cartel</Link>
+          <Link to="/favoritos">Favoritos</Link>
         </div>
       </nav>
     </header>
