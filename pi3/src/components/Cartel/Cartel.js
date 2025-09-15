@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Card from "../Card/Card"; // Importa Card
 import './styles.css';
 
 class Cartel extends Component {
@@ -23,20 +24,7 @@ class Cartel extends Component {
         return (
             <section className="row cards" id="now-playing">
                 {peliculasAMostrar.map(pelicula => (
-                    <article className="single-card-playing" key={pelicula.id}>
-                        <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} className="card-img-top" alt={pelicula.title}/>
-                        <div className="cardBody">
-                            <h5 className="card-title">{pelicula.title}</h5>
-                            <p className="card-text">{pelicula.overview}</p>
-                            <div className="card-actions">
-                                <a href="#" className="btn btn-primary">Ver descripción</a>
-                                <a href="#" className="btn btn-primary" onClick={event => {event.preventDefault(); this.props.history.push(`/detalle/${pelicula.id}`);}}>
-                                    Ir a detalle
-                                </a>
-                                <button className="btn alert-primary">♥️</button>
-                            </div>
-                        </div>
-                    </article>
+                    <Card data={pelicula} history={this.props.history} key={pelicula.id} />
                 ))}
                 <div>
                     <button className="btn btn-primary" onClick={() => this.props.history.push('/ver-mas-cartel')}>
