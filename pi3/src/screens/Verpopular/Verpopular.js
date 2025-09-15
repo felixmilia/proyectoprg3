@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Card from '../../components/Card/Card'; 
 
 class Verpopular extends Component {
     constructor(props) {
@@ -16,29 +17,18 @@ class Verpopular extends Component {
     }
 
     render() {
+                const peliculasAMostrar = this.state.peliculas;
         return (
-            <section className="row cards" id="now-playing">
-                {this.state.peliculas.map(pelicula => (
-                    <article className="single-card-playing" key={pelicula.id}>
-                        <img
-                            src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
-                            className="card-img-top"
-                            alt={pelicula.title}
-                        />
-                        <div className="cardBody">
-                            <h5 className="card-title">{pelicula.title}</h5>
-                            <p className="card-text">{pelicula.overview}</p>
-                            <div className="card-actions">
-                                <a href="#" className="btn btn-primary">Ver descripción</a>
-                                <a href="#" className="btn btn-primary" onClick={event => {event.preventDefault(); this.props.history.push(`/detalle/${pelicula.id}`);}}>
-                                    Ir a detalle
-                                </a>
-                                <button className="btn alert-primary">♥️</button>
-                            </div>
-                        </div>
-                    </article>
-                ))}
-            </section>
+            <>
+                <h2 className="alert alert-primary">Peliculas populares esta semana</h2>
+                <section className="row cards" id="now-playing">
+                    <section className="row cards" id="now-playing">
+                        {peliculasAMostrar.map(pelicula => (
+                            <Card data={pelicula} history={this.props.history} key={pelicula.id} />
+                        ))}
+                    </section>
+                </section>
+            </>
         );
     }
 }

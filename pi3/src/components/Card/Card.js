@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
 
 
 class Card extends Component {
@@ -10,6 +11,8 @@ class Card extends Component {
         };
     }
 
+
+    
     componentDidMount() {
        
     }
@@ -41,9 +44,9 @@ class Card extends Component {
                {this.state.mostrarDescripcion ? <p className="card-text">{pelicula.overview}</p>: ""}
                 <div className="card-actions">
                     <button onClick= {()=>this.manejarDescripcion()}className="btn btn-primary">{this.state.textoDescripcion}</button>
-                    <a href="#" className="btn btn-primary" onClick={event => {event.preventDefault(); this.props.history.push(`/detalle/${pelicula.id}`);}}>
+                    <Link to="#" className="btn btn-primary" onClick={event => {event.preventDefault(); this.props.history.push(`/detalle/${pelicula.id}`);}}>
                         Ir a detalle
-                    </a>
+                    </Link>
                     <button className="btn alert-primary">♥️</button>
                 </div>
             </div>
@@ -53,4 +56,4 @@ class Card extends Component {
     }
 }
 
-export default Card;
+export default withRouter(Card);
