@@ -12,6 +12,7 @@ import Vercartel from "./screens/Vercartel/Vercartel";
 import Verpopular from "./screens/Verpopular/Verpopular";
 import Detalle from "./screens/Detalle/Detalle";
 import NotFound from "./screens/NotFound/NotFound";
+import Favoritos from "./screens/Favoritos/Favoritos";
 
 
 function App() {
@@ -32,9 +33,8 @@ function App() {
         <Route path="/ver-mas-cartel" component={Vercartel} />
         <Route path="/ver-mas-popular" component={Verpopular} />
         <Route path="/detalle/:id" component={Detalle} />
+        <Route path="/favoritos" component={Favoritos} />
         <Route path="" component={NotFound} />
-        {/* favoritos */}
-        {/* error */}
 
        
       </Switch>
