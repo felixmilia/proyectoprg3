@@ -40,11 +40,11 @@ class Card extends Component {
         <article className="single-card-playing" key={pelicula.id}>
             <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`} className="card-img-top" alt={pelicula.title} />
             <div className="cardBody">
-                <h5 className="card-title">{pelicula.title}</h5>
+                <h5 className="card-title">{(this.props.tipo&&this.props.tipo=="tv")?pelicula.name: pelicula.title}</h5>
                {this.state.mostrarDescripcion ? <p className="card-text">{pelicula.overview}</p>: ""}
                 <div className="card-actions">
                     <button onClick= {()=>this.manejarDescripcion()}className="btn btn-primary">{this.state.textoDescripcion}</button>
-                    <Link to="#" className="btn btn-primary" onClick={event => {event.preventDefault(); this.props.history.push(`/detalle/${pelicula.id}`);}}>
+                    <Link to={`/detalle/${(this.props.tipo&&this.props.tipo=="tv")?'tv': "movie"}/${pelicula.id}`} className="btn btn-primary" >
                         Ir a detalle
                     </Link>
                     <button className="btn alert-primary">♥️</button>

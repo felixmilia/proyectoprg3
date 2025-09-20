@@ -29,10 +29,10 @@ function App() {
       
 
         <Route path="/" exact={true} component={Home} />
-        <Route path="/busqueda/:query" component={Busqueda} />
+        <Route path="/busqueda/:tipo/:query" component={Busqueda} />
         <Route path="/ver-mas-cartel" component={Vercartel} />
         <Route path="/ver-mas-popular" component={Verpopular} />
-        <Route path="/detalle/:id" component={Detalle} />
+        <Route path="/detalle/:tipo/:id" component={Detalle} />
         <Route path="/favoritos" component={Favoritos} />
         <Route path="" component={NotFound} />
 

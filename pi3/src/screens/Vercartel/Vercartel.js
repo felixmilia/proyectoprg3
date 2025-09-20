@@ -5,7 +5,10 @@ class Vercartel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            peliculas: []
+            peliculas: [],
+            page: 2,
+            peliculasFiltradas: [],
+            input: "",
         };
     }
 
@@ -15,18 +18,34 @@ class Vercartel extends Component {
             .then(data => this.setState({ peliculas: data.results }))
             .catch(error => console.log('El error fue: ' + error));
     }
+cargarMas (){
+    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=702201d43b610a61ca14f4b8810d7ccb&language=es-ES&page='+ this.state.page)
+    .then(response => response.json())
+    .then(data => this.setState({ peliculas: this.state.peliculas.concat(data.results), page: this.state.page + 1 }))
+    .catch(error => console.log('El error fue: ' + error));
+}
+filtrarBusqueda(event) {
+    let busqueda = event.target.value
+    let peliculasFiltradas = this.state.peliculas.filter(unaPelicula => {
+        return unaPelicula.title.toLowerCase().includes(busqueda.toLowerCase())
+    })
+    console.log (peliculasFiltradas)
+    this.setState({peliculasFiltradas: peliculasFiltradas, input: busqueda})
+}
 
     render() {
-        const peliculasAMostrar = this.state.peliculas;
+        const peliculasAMostrar = this.state.input.length==0?this.state.peliculas:this.state.peliculasFiltradas;
 
         return (
             <>
                 <h2 class="alert alert-primary">Peliculas en cartel</h2>
+                <input placeholder= "filtrar" onChange={(event)=> this.filtrarBusqueda(event)}/> 
                 <section className="row cards" id="now-playing">
                     {peliculasAMostrar.map(pelicula => (
                         <Card data={pelicula} history={this.props.history} key={pelicula.id} />
                     ))}
                 </section>
+                <button onClick={()=> this.cargarMas()} > cargar mas </button> 
             </>
         );
     }

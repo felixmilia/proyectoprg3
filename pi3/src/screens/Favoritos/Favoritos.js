@@ -1,7 +1,10 @@
 import React, {Component} from "react";
 
 class Favoritos extends Component{
-    render(){
+    render(){  
+    return (
+        <p>Esto es favoritos </p>
+    )
     }
 }
 

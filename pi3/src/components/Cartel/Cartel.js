@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Card from "../Card/Card"; // Importa Card
+import Card from "../Card/Card"; 
 import './styles.css';
 
 class Cartel extends Component {
@@ -14,7 +14,8 @@ class Cartel extends Component {
     componentDidMount() {
         fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=702201d43b610a61ca14f4b8810d7ccb&language=es-ES&page=1')
             .then(response => response.json())
-            .then(data => this.setState({ peliculas: data.results }))
+            .then(data => 
+                this.setState({ peliculas: data.results, cargando: false }))
             .catch(error => console.log('El error fue: ' + error));
     }
 
