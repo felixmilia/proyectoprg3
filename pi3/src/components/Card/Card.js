@@ -31,6 +31,18 @@ class Card extends Component {
         
     }
 
+    verificarFavorito(id) {
+        let favoritos = [];
+        let datosStorage = localStorage.getItem("LSFavoritos");
+        if (datosStorage !== null) {
+            favoritos = JSON.parse(datosStorage);
+        }
+
+        if (favoritos.includes(id)) {
+            this.setState({ esFavorito: true });
+        }
+    }
+
     agregarAFavoritos(){
         const id = this.props.data.id
         console.log("se agrego a favoritos la pelicula con id " + id);

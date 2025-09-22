@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Card from '../../components/Card/Card';
 
 class Detalle extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pelicula: null
+            pelicula: null ,
+            esFavorito: false
         };
     }
 
@@ -18,6 +20,41 @@ class Detalle extends Component {
                 console.log (data)
             } )
             .catch(error => console.log('El error fue: ' + error));
+    }
+
+    verificarFavorito(id) {
+        let favoritos = [];
+        let datosStorage = localStorage.getItem("LSFavoritos");
+        if (datosStorage !== null) {
+            favoritos = JSON.parse(datosStorage);
+        }
+
+        if (favoritos.includes(id)) {
+            this.setState({ esFavorito: true });
+        }
+    }
+
+    agregarAFavoritos(){
+        const id = this.props.data.id
+        console.log("se agrego a favoritos la pelicula con id " + id);
+        let favoritos = [];
+
+        let datosStorage = localStorage.getItem("LSFavoritos");
+        if (datosStorage !== null){
+            favoritos = JSON.parse(datosStorage);
+
+        }
+
+        favoritos.push(id);
+        localStorage.setItem("LSFavoritos", JSON.stringify(favoritos));
+        console.log(localStorage);
+        this.setState({
+            esFavorito: true
+        });
+    }
+
+    quitarDeFavoritos(){
+
     }
 
     render() {
