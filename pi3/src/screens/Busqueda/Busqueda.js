@@ -24,7 +24,7 @@ componentDidMount (){
        
         return (
             <section className="row cards" id="now-playing"> 
-            {this.state.cargando ? <p> cargando </p> : this.state.elementos.map(pelicula => (
+            {this.state.cargando ? <p> Cargando... </p> : this.state.elementos.map(pelicula => (
                 <Card data={pelicula} tipo={this.props.match.params.tipo} /> 
             )) }
             </section>

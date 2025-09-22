@@ -7,7 +7,8 @@ class Card extends Component {
         super(props);
         this.state = { 
             mostrarDescripcion: false , 
-            textoDescripcion: "Ver descripcion"
+            textoDescripcion: "Ver descripcion" ,
+            esFavorito: false
         };
     }
 
@@ -30,6 +31,29 @@ class Card extends Component {
         
     }
 
+    agregarAFavoritos(){
+        const id = this.props.data.id
+        console.log("se agrego a favoritos la pelicula con id " + id);
+        let favoritos = [];
+
+        let datosStorage = localStorage.getItem("LSFavoritos");
+        if (datosStorage !== null){
+            favoritos = JSON.parse(datosStorage);
+
+        }
+
+        favoritos.push(id);
+        localStorage.setItem("LSFavoritos", JSON.stringify(favoritos));
+        console.log(localStorage);
+        this.setState({
+            esFavorito: true
+        });
+    }
+
+    quitarDeFavoritos(){
+        
+    }
+
 
 
 
@@ -47,8 +71,11 @@ class Card extends Component {
                     <Link to={`/detalle/${(this.props.tipo&&this.props.tipo=="tv")?'tv': "movie"}/${pelicula.id}`} className="btn btn-primary" >
                         Ir a detalle
                     </Link>
-                    <button className="btn alert-primary">♥️</button>
-                </div>
+                    {this.state.esFavorito ?
+                    <button onClick= {()=>this.quitarDeFavoritos()} className="btn btn-danger">quitar</button>
+                    :
+                    <button onClick= {()=>this.agregarAFavoritos()} className="btn btn-danger">♥️</button>}
+                </div> 
             </div>
         </article>
          
