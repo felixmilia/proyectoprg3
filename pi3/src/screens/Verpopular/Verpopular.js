@@ -43,16 +43,17 @@ class Verpopular extends Component {
         return (
             <>
                 <h2 className="alert alert-primary">peliculas populares esta semana</h2>
-                
-                <input 
-                    placeholder="filtrar" onChange={(event) => this.filtrarBusqueda(event)} /> 
+            <div className='filtro-populares'>
+                <input placeholder="filtrar" onChange={(event) => this.filtrarBusqueda(event)} /> 
+            </div>
                      <section className="row cards" id="now-playing">
                     {peliculasAMostrar.map(pelicula => (
                      <Card data={pelicula} history={this.props.history} key= {pelicula.id}/>
                     ))}
                 </section>
-
+            <div className="contenedor-boton">
                 <button onClick={() => this.cargarMas()}> cargar mas</button> 
+            </div>
             </>
         );
     }

@@ -7,7 +7,9 @@
     background: #fafafa;
     margin-bottom: 2%;
 }
-
+.filtro-cartel{
+    padding: 24px;
+  }
 .single-card-playing {
     background: #fff;
     border-radius: 12px;
@@ -30,6 +32,11 @@
     object-fit: cover;
     border-radius: 12px 12px 0 0;
 }
+  
+.filtro-cartel {
+    padding-left: 24px;
+  }
+  
 
 .cardBody {
     padding: 18px 16px 14px 16px;
@@ -85,8 +92,14 @@
     background: #f3f3f3;
     color: #a00;
     border: 1px solid #eee;
-}
 
+
+}
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+  }
+  
 .alert-primary:hover {
     background: #ffeaea;
     color: #d00;

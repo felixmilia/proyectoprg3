@@ -2,6 +2,7 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+  
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -10,7 +11,9 @@
     padding: 2rem 1rem;
     background: #fafafa;
 }
-
+.filtro-populares{
+    padding: 24px;
+  }
 .single-card-movie {
     background: #fff;
     border-radius: 12px;

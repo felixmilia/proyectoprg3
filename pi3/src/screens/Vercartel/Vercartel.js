@@ -39,13 +39,17 @@ filtrarBusqueda(event) {
         return (
             <>
                 <h2 class="alert alert-primary">Peliculas en cartel</h2>
+            <div className='filtro-cartel'>
                 <input placeholder= "filtrar" onChange={(event)=> this.filtrarBusqueda(event)}/> 
+            </div>
                 <section className="row cards" id="now-playing">
                     {peliculasAMostrar.map(pelicula => (
                         <Card data={pelicula} history={this.props.history} key={pelicula.id} />
                     ))}
                 </section>
+            <div className="contenedor-boton">
                 <button onClick={()=> this.cargarMas()} > cargar mas </button> 
+            </div>
             </>
         );
     }
