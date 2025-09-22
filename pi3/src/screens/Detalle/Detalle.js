@@ -54,7 +54,11 @@ class Detalle extends Component {
     }
 
     quitarDeFavoritos(){
-
+        localStorage.removeItem("LSFavoritos");
+        this.setState({
+            esFavorito: false
+        });
+        console.log(localStorage);
     }
 
     render() {

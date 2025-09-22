@@ -63,7 +63,11 @@ class Card extends Component {
     }
 
     quitarDeFavoritos(){
-        
+        localStorage.removeItem("LSFavoritos");
+        this.setState({
+            esFavorito: false
+        });
+        console.log(localStorage);
     }
 
 
@@ -84,9 +88,9 @@ class Card extends Component {
                         Ir a detalle
                     </Link>
                     {this.state.esFavorito ?
-                    <button onClick= {()=>this.quitarDeFavoritos()} className="btn btn-danger">quitar</button>
+                    <button onClick= {()=>this.quitarDeFavoritos()} className="btn btn-danger">♥️</button>
                     :
-                    <button onClick= {()=>this.agregarAFavoritos()} className="btn btn-danger">♥️</button>}
+                    <button onClick= {()=>this.agregarAFavoritos()} className="btn btn-danger">🤍</button>}
                 </div> 
             </div>
         </article>
