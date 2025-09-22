@@ -30,6 +30,45 @@ class Favoritos extends Component{
     }
 }
 
+    verificarFavorito(id) {
+        let favoritos = [];
+        let datosStorage = localStorage.getItem("LSFavoritos");
+        if (datosStorage !== null) {
+            favoritos = JSON.parse(datosStorage);
+        }
+
+        if (favoritos.includes(id)) {
+            this.setState({ esFavorito: true });
+        }
+    }
+
+    agregarAFavoritos(){
+        const id = this.props.data.id
+        console.log("se agrego a favoritos la pelicula con id " + id);
+        let favoritos = [];
+
+        let datosStorage = localStorage.getItem("LSFavoritos");
+        if (datosStorage !== null){
+            favoritos = JSON.parse(datosStorage);
+
+        }
+
+        favoritos.push(id);
+        localStorage.setItem("LSFavoritos", JSON.stringify(favoritos));
+        console.log(localStorage);
+        this.setState({
+            esFavorito: true
+        });
+    }
+
+    quitarDeFavoritos(){
+        localStorage.removeItem("LSFavoritos");
+        this.setState({
+            esFavorito: false
+        });
+        console.log(localStorage);
+    }
+
 
     render(){
         return (

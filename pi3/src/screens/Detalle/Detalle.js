@@ -17,6 +17,7 @@ class Detalle extends Component {
             .then(response => response.json())
             .then(data =>{
                 this.setState({ pelicula: data })
+                this.verificarFavorito(data.id, tipo)
                 console.log (data)
             } )
             .catch(error => console.log('El error fue: ' + error));
@@ -35,7 +36,9 @@ class Detalle extends Component {
     }
 
     agregarAFavoritos(){
-        const id = this.props.data.id
+        const pelicula = this.state.pelicula;
+        const id = pelicula.id;
+
         console.log("se agrego a favoritos la pelicula con id " + id);
         let favoritos = [];
 
@@ -74,7 +77,10 @@ class Detalle extends Component {
                 <p>Duración: {pelicula.runtime} min</p>
                 <p>{pelicula.overview}</p>
                 <p>Género: {pelicula.genres && pelicula.genres.map(genero => `${genero.name} ` )}</p>
-                <button className="btn alert-primary">♥️</button>
+                {this.state.esFavorito ?
+                    <button onClick= {()=>this.quitarDeFavoritos()} className="btn btn-danger">♥️</button>
+                    :
+                    <button onClick= {()=>this.agregarAFavoritos()} className="btn btn-danger">🤍</button>}
             </section>
         );
     }
