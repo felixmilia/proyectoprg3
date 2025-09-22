@@ -35,11 +35,11 @@ class Formulario extends Component {
         return (
             <form onSubmit={(event) => this.prevenirRecarga(event)}>
                 <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}/>
-                <label>peliculas</label>
+                <label>Peliculas</label>
 
 
                 <input type="radio" value='movie' name="tipo" onChange={(event)=> this.controlarTipo(event)}/>
-                <label>series</label>
+                <label>Series</label>
                 <input type="radio" value='tv' name="tipo" onChange={(event)=> this.controlarTipo(event)}/>
                 <button type="submit">Buscar</button>
             </form>
