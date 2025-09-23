@@ -15,7 +15,15 @@ class Card extends Component {
 
     
     componentDidMount() {
-       
+        const id = this.props.data.id;
+        let favoritos = [];
+        let datosStorage = localStorage.getItem("LSFavoritos");
+        if (datosStorage !== null) {
+            favoritos = JSON.parse(datosStorage);
+        }
+        if (favoritos.includes(id)) {
+            this.setState({ esFavorito: true });
+        }
     }
 
     manejarDescripcion() {
@@ -43,31 +51,30 @@ class Card extends Component {
         }
     }
 
-    agregarAFavoritos(){
-        const id = this.props.data.id
-        console.log("se agrego a favoritos la pelicula con id " + id);
+    agregarAFavoritos() {
+        const id = this.props.data.id;
         let favoritos = [];
-
         let datosStorage = localStorage.getItem("LSFavoritos");
-        if (datosStorage !== null){
+        if (datosStorage !== null) {
             favoritos = JSON.parse(datosStorage);
-
         }
-
-        favoritos.push(id);
-        localStorage.setItem("LSFavoritos", JSON.stringify(favoritos));
-        console.log(localStorage);
-        this.setState({
-            esFavorito: true
-        });
+        if (!favoritos.includes(id)) {
+            favoritos.push(id);
+            localStorage.setItem("LSFavoritos", JSON.stringify(favoritos));
+            this.setState({ esFavorito: true });
+        }
     }
 
-    quitarDeFavoritos(){
-        localStorage.removeItem("LSFavoritos");
-        this.setState({
-            esFavorito: false
-        });
-        console.log(localStorage);
+    quitarDeFavoritos() {
+        const id = this.props.data.id;
+        let favoritos = [];
+        let datosStorage = localStorage.getItem("LSFavoritos");
+        if (datosStorage !== null) {
+            favoritos = JSON.parse(datosStorage);
+        }
+        favoritos = favoritos.filter(favId => favId !== id);
+        localStorage.setItem("LSFavoritos", JSON.stringify(favoritos));
+        this.setState({ esFavorito: false });
     }
 
 
