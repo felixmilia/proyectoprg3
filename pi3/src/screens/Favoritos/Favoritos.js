@@ -75,7 +75,7 @@ class Favoritos extends Component{
             <React.Fragment>
                 
                 { this.state.personajesFavoritos.length === 0 ? 
-                    <p>Cargando...</p> :
+                    <p>Todavia no tenes peliculas o series favoritas</p> :
                     this.state.personajesFavoritos.map(unaPelicula => <Card data={unaPelicula} favoritos={true} key={unaPelicula.id} />)
                 }
             </React.Fragment>

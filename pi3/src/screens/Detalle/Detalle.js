@@ -70,17 +70,19 @@ class Detalle extends Component {
 
         return (
             <section className="detalle-pelicula">
-                <img src={pelicula.poster_path ? `https://image.tmdb.org/t/p/w500${pelicula.poster_path}`: 'https://via.placeholder.com/500x750?text=Sin+imagen'} alt={pelicula.title}/>
-                <h2>{this.props.match.params.tipo=="movie"? pelicula.title: pelicula.name}</h2>
-                <p className="ratingPela">Rating: {pelicula.vote_average}</p>
-                <p>Fecha de estreno: {this.props.match.params.tipo== "movie"?pelicula.release_date: pelicula.first_air_date}</p>
-                <p>Duración: {pelicula.runtime} min</p>
-                <p>{pelicula.overview}</p>
-                <p>Género: {pelicula.genres && pelicula.genres.map(genero => `${genero.name} ` )}</p>
-                {this.state.esFavorito ?
-                    <button onClick= {()=>this.quitarDeFavoritos()} className="btn btn-danger">♥️</button>
-                    :
-                    <button onClick= {()=>this.agregarAFavoritos()} className="btn btn-danger">🤍</button>}
+                <img className="fotoDetalle" src={pelicula.poster_path ? `https://image.tmdb.org/t/p/w500${pelicula.poster_path}`: 'https://via.placeholder.com/500x750?text=Sin+imagen'} alt={pelicula.title}/>
+                <div className="detalle-info">
+                    <h2>{this.props.match.params.tipo=="movie"? pelicula.title: pelicula.name}</h2>
+                    <p className="ratingPela">Rating: {pelicula.vote_average}</p>
+                    <p>Fecha de estreno: {this.props.match.params.tipo== "movie"?pelicula.release_date: pelicula.first_air_date}</p>
+                    <p>Duración: {pelicula.runtime} min</p>
+                    <p>{pelicula.overview}</p>
+                    <p>Género: {pelicula.genres && pelicula.genres.map(genero => `${genero.name} ` )}</p>
+                    {this.state.esFavorito ?
+                        <button onClick= {()=>this.quitarDeFavoritos()} className="btn btn-danger">♥️</button>
+                        :
+                        <button onClick= {()=>this.agregarAFavoritos()} className="btn btn-danger">🤍</button>}
+                </div>
             </section>
         );
     }

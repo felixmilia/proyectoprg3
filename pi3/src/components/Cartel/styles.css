@@ -112,6 +112,71 @@
     margin-Top: 24;
 }
 
+.detalle-pelicula {
+    background: #fff;
+    color: #222;
+    max-width: 900px;
+    margin: 40px auto 32px auto;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    padding: 32px;
+    align-items: flex-start;
+}
+
+.fotoDetalle {
+    width: 320px;
+    min-width: 220px;
+    max-width: 340px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    object-fit: cover;
+}
+
+.detalle-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.detalle-pelicula h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #a00;
+}
+
+.ratingPela {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.detalle-pelicula p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.detalle-pelicula button {
+    margin-top: 18px;
+    padding: 8px 22px;
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+    background: #a00;
+    color: #fff;
+    cursor: pointer;
+}
+
+.detalle-pelicula button.btn-danger {
+    background: #a00;
+}
+
+.detalle-pelicula button.btn-danger:hover {
+    background: #d00;
+}
+
 @media (max-width: 900px) {
     .cards {
         gap: 18px;

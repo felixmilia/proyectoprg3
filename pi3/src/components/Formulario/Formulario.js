@@ -33,7 +33,7 @@ class Formulario extends Component {
     }
     render () {
         return (
-            <form onSubmit={(event) => this.prevenirRecarga(event)}>
+            <form className="messi1" onSubmit={(event) => this.prevenirRecarga(event)}>
                 <input type='text' onChange={(event) => this.controlarCambios(event)} value={this.state.busqueda}/>
                 <label>Peliculas</label>
 
